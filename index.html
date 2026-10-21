@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Interactive visualizer for sorting, comparing sorts,  binary and linear search, stacks, queues and linked lists."><meta name="theme-color" content="#5146d8"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%235146d8%27/%3E%3C/svg%3E"><title>Data Structure Analyzer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("dsa-theme")||"dark"}catch(e){}</script>
+<script src="app.js"></script>
+</head>
+<body>
+<noscript><p style="padding:24px;font-family:sans-serif">Data Structure Analyzer needs JavaScript to run.</p></noscript>
+<div id="app">
+<header><a class="brand" href="#/" style="color:inherit;text-decoration:none"><div class="logo">⌘</div><span>Data Structure <span style="color:var(--accent)">Analyzer</span></span></a><div style="display:flex;gap:8px"><span class="pill hide">Interactive learning</span><button class="pill themebtn" id="theme" type="button" aria-label="Switch between dark and light theme"></button></div></header>
+<main>
+<div class="hero"><h1>See the logic.<br>Understand the steps.</h1><p class="intro">Change the inputs, step through each operation, and watch the matching line of code light up.</p></div>
+<div class="layout">
+<aside class="sidebar"><div class="side-label">Topics</div>
+<nav id="nav" aria-label="Topics"></nav>
+<div class="sidebar-note"><strong>Keyboard</strong>Space plays or pauses. Arrow keys step back and forward.</div></aside>
+<section class="workspace" id="viz" hidden><nav class="crumb" id="crumb"></nav>
+<div class="panel">
+<div class="panel-head"><div><h2 id="module-title">Bubble sort</h2><div class="sub" id="module-sub"></div></div><span class="pill" id="complexity-pill"></span></div>
+<div id="sort-controls"><div class="controls"><div class="field" style="flex:2"><label for="array-input">Values (comma-separated, up to 18)</label><input id="array-input" value="8, 3, 6, 2, 9, 1, 5"></div><button class="btn" id="randomize">Shuffle</button><button class="btn primary" id="load-array">Load values</button></div></div>
+<div id="search-controls" hidden><div class="controls"><div class="field" style="flex:2"><label for="search-array">Values (comma-separated, up to 18)</label><input id="search-array" value="12, 7, 21, 4, 16, 9"></div><div class="field" style="max-width:130px"><label for="target-input">Target</label><input id="target-input" type="number" value="16"></div><button class="btn primary" id="run-search">Run search</button></div></div>
+<div id="play" class="controls"><button class="btn primary" id="start-btn">▶ Play</button><button class="btn" id="prev-btn">← Back</button><button class="btn" id="next-btn">Next →</button><button class="btn" id="reset-btn">Reset</button><button class="btn" id="quiz-btn" hidden>Quiz: off</button><div class="field" style="max-width:140px;min-width:100px"><label for="speed">Speed</label><select id="speed"><option value="1000">Slow</option><option value="600" selected>Normal</option><option value="220">Fast</option></select></div></div>
+<div id="ds-controls" hidden><div class="controls"><div class="field"><label for="ds-value">Value</label><input id="ds-value" type="number" value="42"></div><button class="btn" id="ds-head" hidden>Insert head</button><button class="btn primary" id="ds-add">Push</button><button class="btn" id="ds-remove">Pop</button><button class="btn" id="ds-reset">Clear</button></div></div>
+<div class="visual-area"><div id="bars" class="bars" role="img" aria-label="Algorithm visualization"><div class="ptr" id="ptr">▼</div></div><div id="structure-view" hidden></div><div id="compare-view" hidden></div><div class="statusline"><span id="step-status"></span><span id="operation-status"></span></div><div class="prog" id="progbar"><i id="prog"></i></div></div>
+<div class="metrics"><div class="metric"><span id="m1l"></span><strong id="m1">0</strong></div><div class="metric"><span id="m2l"></span><strong id="m2">0</strong></div><div class="metric"><span id="m3l"></span><strong id="m3">0</strong></div></div>
+<div id="quiz" class="quiz" hidden></div>
+<div id="toast" class="toast" role="status"></div>
+</div>
+<div class="bottom-grid"><div class="panel"><div class="panel-head"><div><h2>Pseudocode</h2><div class="sub">The current line is highlighted</div></div></div><div class="codebox"><pre id="pseudocode"></pre></div></div>
+<div class="panel"><div class="panel-head"><div><h2>What's happening</h2><div class="sub">In plain language</div></div></div><div class="explain" id="explanation"></div><div class="callout" id="complexity-note"></div></div></div>
+</section>
+<section class="workspace" id="page" hidden></section></div>
+</main></div>
+
+</body>
+</html>
